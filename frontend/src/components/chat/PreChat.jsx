@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import './PreChat.css';
+
 function PreChat({onSubmit,onClose}){
 
     const [formData, setFormData] = useState({
@@ -31,14 +33,28 @@ function PreChat({onSubmit,onClose}){
         return true;
 
     }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+        setErrors(prevErrors => ({
+            ...prevErrors,
+            [name]: ''
+        }));
+
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
+            setErrors({});
           onSubmit(formData);
         }
       };
 
-    return (
+      return (
         <div className="popup-overlay">
             <div className="popup-content animated-fade-in">
                 <button className="close-button" onClick={onClose}>×</button>
@@ -52,6 +68,7 @@ function PreChat({onSubmit,onClose}){
                             type="text"
                             name="name"
                             value={formData.name}
+                            onChange={handleChange}
                             placeholder="Enter your name"
                         />
                         {errors.name && <span className="error-message">{errors.name}</span>}
@@ -62,6 +79,7 @@ function PreChat({onSubmit,onClose}){
                             type="text"
                             name="age"
                             value={formData.age}
+                            onChange={handleChange}
                             placeholder="Enter your age"
                         />
                         {errors.age && <span className="error-message">{errors.age}</span>}
@@ -72,6 +90,7 @@ function PreChat({onSubmit,onClose}){
                             type="text"
                             name="csPlaytime"
                             value={formData.csPlaytime}
+                            onChange={handleChange}
                             placeholder="Enter your CS playtime"
                         />
                         {errors.csPlaytime && <span className="error-message">{errors.csPlaytime}</span>}
@@ -81,8 +100,9 @@ function PreChat({onSubmit,onClose}){
                         <select
                             name="csFavouritePlayer"
                             value={formData.csFavouritePlayer}
+                            onChange={handleChange}
                         >
-                            <option value="">Nao tenho um jogador favorito</option>
+                            <option value="player0">Nao tenho um jogador favorito</option>
                             <option value="player1">Player 1</option>
                             <option value="player2">Player 2</option>
                             <option value="player3">Player 3</option>
@@ -99,8 +119,7 @@ function PreChat({onSubmit,onClose}){
                 </form>
             </div>
         </div>
-      )
-
+    )
 }
 
 

@@ -1,0 +1,11 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 350px;
+  width: 1300px;
+  height: 1000px;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+}

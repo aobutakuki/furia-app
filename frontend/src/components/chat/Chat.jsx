@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import PreChat from "./PreChat";
 
+import './Chat.css';
+
 function Chat() {
     const [showForm, setShowForm] = useState(true);
     const [userData, setUserData] = useState(null);
