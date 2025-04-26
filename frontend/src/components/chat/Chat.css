@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 350px;
+  margin-left: 270px;
   margin-top: 20px;
   width: 1350px;
-  height: 1000px;
+  height: 890px;
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
   border: white 1px solid;
@@ -59,4 +59,35 @@
     background-color: rgb(24, 24, 24);
     color: white;
     border: 1px solid white;
+}
+
+.chat-messages {
+    width: 1310px;
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #181818;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #e0e0e0;
+    color:black;
+    border-bottom-left-radius: 5px;
 }
