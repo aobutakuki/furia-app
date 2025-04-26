@@ -25,7 +25,12 @@ function Chat() {
                     <p>Your Favourite Player: {userData.csFavouritePlayer}</p>
                 </div>
             )}
+            <div className="chat-input">
+                <input type="text" placeholder="Digite sua mensagem..." />
+                <button>Enviar</button>
+            </div>
         </div>
+
     )
 }
 
