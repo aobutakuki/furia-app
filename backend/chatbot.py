@@ -20,34 +20,33 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
     • sidde (Coach)
 
 🔹 Ex-jogadores notáveis:
-  • VINI (lendário entry-fragger)
-  • arT (ex-IGL)
+  • VINI (Rifler)
+  • arT (IGL e Rifler)
+  • drop (Participou na melhor campanha da FURIA em um major no IEM Rio 2022)
+  • saffee (Participou na melhor campanha da FURIA em um major no IEM Rio 2022)
 
 🏆 Principais Conquistas:
   • Vice-campeões do ESL Pro League Season 17 (2023)
-  • Semifinalistas do IEM Rio Major 2022 (melhor campanha brasileira)
-  • Campeões da DreamHack Open Winter 2020
-  • 2º lugar no ESL One: Cologne 2020 (Online)
-  • 5x Campeões brasileiros consecutivos (2019-2023)
+  • Semifinalistas do IEM Rio Major 2022 (melhor campanha da equipe em Majors)
+  • Semifinalistas do IEM Rio 2024 
 
 📊 Estatísticas Recentes:
-  • Top 15 do ranking HLTV em 2024
-  • 3º lugar no IEM Katowice 2024
+  • Eliminados na fase de grupos do PGL Bucharest 2025
   • Eliminados na fase de grupos do Major de Copenhagen 2025
+  • Eliminados no Elimination Stage do Major de Xangai 2024
 
 📌 História:
   • Fundada em agosto de 2017 em São Paulo
-  • Primeira organização brasileira a competir regularmente na Europa
+  • Primeira organização de origem brasileira a competir regularmente na Europa
   • Conhecida pelo estilo de jogo agressivo ("FURIA Style")
   • Base de fãs estimada em 2.5 milhões (maior do CS2 no Brasil)
 
 💡 Curiosidades:
   • Recorde de 87 mapas consecutivos com pelo menos 10 rounds
-  • arT detém o recorde de maior número de clutches em Majors (23)
-  • KSCERATO já foi nomeado 3x para o Top 20 do mundo
-  • yuurih é conhecido por sua habilidade em "clutch or kick"
-  • molodoy é o primeiro jogador do Cazaquistão a se juntar à FURIA
-  • YEKINDAR é um dos jogadores mais promissores da região Báltica
+  • KSCERATO já foi nomeado 4x para o Top 20 do mundo (em 2020, 2021, 2022 e 2023)
+  • Em 2022, a FURIA protagonizou uma das maiores vitórias em um major, com uma audiência histórica de 1,3 milhão de espectadores online, contra a NAVI nas Quartas de Final do IEM Rio daquele ano
+  • molodoy é o primeiro jogador da Europa a se juntar à FURIA
+  • YEKINDAR é um dos jogadores mais promissores da Europa
   
  📅Calendário Competitivo Atualizado (Maio/2025):
 
@@ -60,21 +59,22 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
       - Times confirmados: FURIA, Spirit, NaVi, Vitality
 
 🔹 Majors 2025:
-    • IEM Dallas 2025
-
+    • BLAST.tv Austin 2025
+      - Premiação: $1,25 milhões
+      - Times confirmados: FaZe, G2, NaVi, FURIA, Team Spirit, Vitality, Falcons
 
 
 🔴 Últimos Resultados:
-    • ❌ Eliminada por The MongolZ (PGL Bucharest)
+    • ❌ Eliminada 1-3 no Group Stage (PGL Bucharest)
     • 📉 Ranking HLTV atual: #17
-    • 💰 Premiação em 2025: $420,000
+    • 💰 Premiação em 2025: aprox. $34,875
 
 ⚡ Próximos Desafios:
-    • Adaptação do novo AWPer (molodoy)
+    • Adaptação de molodoy como novo AWPer da equipe
     • Busca por vaga no IEM Cologne 2025
     • Preparação para o BLAST Fall Groups
     • Comunicação dos jogadores de países diferentes.
-    • Adaptação de FalleN como Rifler IGL e não AWPer.
+    • Adaptação de FalleN como Rifler IGL e não AWPer
 """
 conversation_history = {}
 
