@@ -43,6 +43,15 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
   • Recorde de 87 mapas consecutivos com pelo menos 10 rounds
   • arT detém o recorde de maior número de clutches em Majors (23)
   • KSCERATO já foi nomeado 3x para o Top 20 do mundo
+  • yuurih é conhecido por sua habilidade em "clutch or kick"
+  • molodoy é o primeiro jogador do Cazaquistão a se juntar à FURIA
+  • YEKINDAR é um dos jogadores mais promissores da região Báltica
+  
+  Proximo torneio: IEM Dallas 2025 (maio/2025)
+  • Próximo Major: IEM Major 2025 (Copenhague, junho/2025)
+  • Próximo torneio online: ESL Pro League Season 18 (julho/2025)
+  • Proximo Jogo: FURIA vs. NAVI (semifinal do IEM Dallas 2025, maio/2025)
+  • Proxima partida: FURIA vs. G2 (quartas de final do IEM Dallas 2025, maio/2025)
 
 """
 conversation_history = {}
