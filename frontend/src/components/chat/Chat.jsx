@@ -18,7 +18,7 @@ function Chat() {
     };
 
     useEffect(() => {
-        scrollToBottom();
+        //scrollToBottom();
     }, [messages]);
 
     // Handle form submission

@@ -47,11 +47,32 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
   • molodoy é o primeiro jogador do Cazaquistão a se juntar à FURIA
   • YEKINDAR é um dos jogadores mais promissores da região Báltica
   
-  Proximo torneio: IEM Dallas 2025 (maio/2025)
-  • Próximo Major: IEM Major 2025 (Copenhague, junho/2025)
-  • Próximo torneio online: ESL Pro League Season 18 (julho/2025)
-  • Proximo Jogo: FURIA vs. NAVI (semifinal do IEM Dallas 2025, maio/2025)
-  • Proxima partida: FURIA vs. G2 (quartas de final do IEM Dallas 2025, maio/2025)
+ 📅Calendário Competitivo Atualizado (Maio/2025):
+
+🔹 Próximos Compromissos:
+    • 🏆 PGL Astana 2025 (Online) - 08-18/05/2025
+      - Premiação: $1.25 milhão
+      - Times confirmados: FURIA, Spirit, NaVi, MIBR
+
+🔹 Majors 2025:
+    • 🚫 IEM Dallas 2025 - FURIA *não classificada*
+    • 🏟️ Major de Copenhague - Eliminada na fase de grupos (Abril/2025)
+
+🔹 Elenco Atual:
+    • arT (IGL) - K/D: 1.05 em 2025
+    • KSCERATO - 78.2% de duelos ganhos
+    • molodoy (AWPer) - 1.32 rating em 2025
+    • YEKINDAR (stand-in) - Substituindo VINI temporariamente
+
+🔴 Últimos Resultados:
+    • ❌ Eliminada por The MongolZ (PGL Bucharest)
+    • 📉 Ranking HLTV atual: #17
+    • 💰 Premiação em 2025: $420,000
+
+⚡ Próximos Desafios:
+    • Adaptação do novo AWPer (molodoy)
+    • Busca por vaga no IEM Cologne 2025
+    • Preparação para o BLAST Fall Groups
 
 """
 conversation_history = {}
