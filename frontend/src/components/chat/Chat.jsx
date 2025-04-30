@@ -26,11 +26,27 @@ function Chat() {
         setUserData(data);
         setShowForm(false);
         
+        const playerMap = {
+            'player0': 'Nao tenho um jogador favorito',
+            'player1': 'yuurih',
+            'player2': 'KSCERATO',
+            'player3': 'FalleN',
+            'player4': 'molodoy',
+            'player5': 'YEKINDAR'
+        };
         
+        const favoritePlayerName = playerMap[data.csFavouritePlayer] || 'Nao tenho um jogador favorito';
+        
+
         setMessages(prev => [...prev, {
-            text: `Olá ${data.name}! Vi que seu jogador favorito é ${data.favoritePlayer}. Como posso te ajudar sobre a FURIA hoje?`,
+            text: `Olá ${data.name}! Vi que seu jogador favorito é ${favoritePlayerName}. Como posso te ajudar sobre a FURIA hoje?`,
             sender: 'bot'
         }]);
+
+        setUserData({
+            ...data,
+            csFavouritePlayer: playerMap[data.csFavouritePlayer]
+        });
     };
 
     // Send message to backend
@@ -86,7 +102,7 @@ function Chat() {
                 <>
                     <div className="chat-header">
                         <h2>FURIA CS2 Assistant</h2>
-                        <p>Bem-vindo, {userData.name} | Jogador favorito: {userData.favoritePlayer}</p>
+                        <p>Bem-vindo, {userData.name} | Jogador favorito: {userData.csFavouritePlayer}</p>
                     </div>
                     
                     <div className="chat-messages">

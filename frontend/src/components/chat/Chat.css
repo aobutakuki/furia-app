@@ -12,6 +12,11 @@
   border: white 1px solid;
 }
 
+.chat-container .chat-header {
+    color: white;
+
+}
+
 .chat-container .chat-input {
     margin-top:auto;
     background-color:rgb(12, 12, 12) ;

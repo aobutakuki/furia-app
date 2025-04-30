@@ -100,14 +100,15 @@ function PreChat({onSubmit,onClose}){
                         <select
                             name="csFavouritePlayer"
                             value={formData.csFavouritePlayer}
+                            type="text"
                             onChange={handleChange}
                         >
                             <option value="player0">Nao tenho um jogador favorito</option>
-                            <option value="player1">Player 1</option>
-                            <option value="player2">Player 2</option>
-                            <option value="player3">Player 3</option>
-                            <option value="player4">Player 4</option>
-                            <option value="player5">Player 5</option>
+                            <option value="player1">yuurih</option>
+                            <option value="player2">KSCERATO</option>
+                            <option value="player3">FalleN</option>
+                            <option value="player4">molodoy</option>
+                            <option value="player5">YEKINDAR</option>
                         </select>
                         {errors.csFavouritePlayer && <span className="error-message">{errors.csFavouritePlayer}</span>}
                     </div>
