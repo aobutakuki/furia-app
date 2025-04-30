@@ -17,9 +17,8 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
   • YEKINDAR (Stand-in) - Jogador letão cobrindo ausências
 
 🔹 Ex-jogadores notáveis:
-  • FalleN (atualmente rifler/IGL substituto)
-  • chelo (transferido em 2024)
   • VINI (lendário entry-fragger)
+  • arT (ex-IGL)
 
 🏆 Principais Conquistas:
   • Vice-campeões do ESL Pro League Season 17 (2023)
@@ -50,19 +49,26 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
  📅Calendário Competitivo Atualizado (Maio/2025):
 
 🔹 Próximos Compromissos:
-    • 🏆 PGL Astana 2025 (Online) - 08-18/05/2025
-      - Premiação: $1.25 milhão
-      - Times confirmados: FURIA, Spirit, NaVi, MIBR
+    • 🏆 PGL Astana 2025 (Offline) - 08-18/05/2025
+      - Premiação: $625 mil 
+      - Times confirmados: FURIA, NAVI, Team Spirit, The Mongolz
+    • 🏆 IEM Dallas 2025 (Offline) - 08-18/05/2025
+      - Premiação: $300 mil 
+      - Times confirmados: FURIA, Spirit, NaVi, Vitality
 
 🔹 Majors 2025:
-    • 🚫 IEM Dallas 2025 - FURIA *não classificada*
-    • 🏟️ Major de Copenhague - Eliminada na fase de grupos (Abril/2025)
+    • IEM Dallas 2025
+
 
 🔹 Elenco Atual:
-    • arT (IGL) - K/D: 1.05 em 2025
-    • KSCERATO - 78.2% de duelos ganhos
-    • molodoy (AWPer) - 1.32 rating em 2025
-    • YEKINDAR (stand-in) - Substituindo VINI temporariamente
+    • yuurih (Rifler) - HLTV Rating de 1.16
+    • KSCERATO (Rifler/Lurker) - HLTV Rating de 1.19
+    • molodoy (AWPer) - HLTV Rating de 1.21
+    • YEKINDAR (stand-in até o final do Major de IEM Dallas) - HLTV Rating de 1.12
+    • FalleN (Rifler/IGL) - HLTV Rating de 1.05
+    • skullz (Benched)
+    • chelo (Benched)
+    • sidde (Coach)
 
 🔴 Últimos Resultados:
     • ❌ Eliminada por The MongolZ (PGL Bucharest)
@@ -73,7 +79,8 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
     • Adaptação do novo AWPer (molodoy)
     • Busca por vaga no IEM Cologne 2025
     • Preparação para o BLAST Fall Groups
-
+    • Comunicação dos jogadores de países diferentes.
+    • Adaptação de FalleN como Rifler IGL e não AWPer.
 """
 conversation_history = {}
 
