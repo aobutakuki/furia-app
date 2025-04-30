@@ -10,77 +10,110 @@ function Chat() {
     const [userData, setUserData] = useState(null);
     const [messages, setMessages] = useState([]); 
     const [inputMessage, setInputMessage] = useState(''); 
+    const [userId, setUserId] = useState(null); // Store user ID
+    const messagesEndRef = React.useRef(null); // Ref to scroll to the bottom of the chat
   
-    // Show user data for demonstration
-    const handleFormSubmit = (data) => {
-      setUserData(data);
-      setShowForm(false);
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
 
-    const handleSendMessage = () => {
+    // Handle form submission
+    const handleFormSubmit = (data) => {
+        setUserData(data);
+        setShowForm(false);
+        
+        
+        setMessages(prev => [...prev, {
+            text: `Olá ${data.name}! Vi que seu jogador favorito é ${data.favoritePlayer}. Como posso te ajudar sobre a FURIA hoje?`,
+            sender: 'bot'
+        }]);
+    };
+
+    // Send message to backend
+    const handleSendMessage = async () => {
         if (inputMessage.trim() === '') return;
         
-        // Add user message to chat
-        setMessages(prev => [...prev, {
-            text: inputMessage,
-            sender: 'user'
-        }]);
-        
+        // Add user message to chat immediately
+        const userMessage = { text: inputMessage, sender: 'user' };
+        setMessages(prev => [...prev, userMessage]);
         setInputMessage('');
         
-        // Simulate bot response (replace with actual API call if needed)
-        setTimeout(() => {
+        try {
+            // Send to FastAPI backend
+            const response = await fetch('http://localhost:8000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    text: inputMessage,
+                    user_id: userId,
+                    metadata: userData // Include form data
+                })
+            });
+            
+            const data = await response.json();
+            
+            // Store user ID if this is first response
+            if (!userId) setUserId(data.user_id);
+            
+            console.log('Response from backend:', data);
+            // Add bot response
             setMessages(prev => [...prev, {
-                text: getBotResponse(inputMessage),
+                text: data.response,
                 sender: 'bot'
             }]);
-        }, 500);
-    };
-    
-    const getBotResponse = (userMessage) => {
-        // Simple response logic - later replace with actual API call
-        const lowerMsg = userMessage.toLowerCase();
-        if (lowerMsg.includes('olá') || lowerMsg.includes('oi')) return 'Olá! Como posso te ajudar?';
-        if (lowerMsg.includes('time')) return 'Você torce para algum time específico?';
-        return 'Interessante! Conte-me mais sobre isso.';
+            
+        } catch (error) {
+            console.error('Error:', error);
+            setMessages(prev => [...prev, {
+                text: "Desculpe, estou tendo problemas para me conectar. Tente novamente mais tarde!",
+                sender: 'bot'
+            }]);
+        }
     };
 
-
-return (
-    <div className="chat-container">
-        {showForm ? (
-            <PreChat onSubmit={handleFormSubmit} onClose={() => setShowForm(false)} />
-        ) : (
-            <>
-                <div className="chat-header">
-                    <h2>Chat Window</h2>
-                    <p>Bem vindo, {userData.name}!</p>
-                </div>
-                
-                <div className="chat-messages">
-                    {messages.map((msg, index) => (
-                        <div key={index} className={`message ${msg.sender}`}>
-                            {msg.text}
-                        </div>
-                    ))}
-                </div>
-                
-                <div className="chat-input">
-                    <input 
-                        type="text" 
-                        value={inputMessage}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        placeholder="Digite sua mensagem..." 
-                        onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                    />
-                    <button onClick={handleSendMessage}>Enviar</button>
-                </div>
-            </>
-        )}
-    </div>
-);
+    return (
+        <div className="chat-container">
+            {showForm ? (
+                <PreChat 
+                    onSubmit={handleFormSubmit}
+                    onClose={() => setShowForm(false)}
+                />
+            ) : (
+                <>
+                    <div className="chat-header">
+                        <h2>FURIA CS2 Assistant</h2>
+                        <p>Bem-vindo, {userData.name} | Jogador favorito: {userData.favoritePlayer}</p>
+                    </div>
+                    
+                    <div className="chat-messages">
+                        {messages.map((msg, index) => (
+                            <div key={index} className={`message ${msg.sender}`}>
+                                {msg.text}
+                            </div>
+                        ))}
+                        <div ref={messagesEndRef} />
+                    </div>
+                    
+                    <div className="chat-input">
+                        <input 
+                            type="text" 
+                            value={inputMessage}
+                            onChange={(e) => setInputMessage(e.target.value)}
+                            placeholder="Pergunte sobre a FURIA..." 
+                            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                        />
+                        <button onClick={handleSendMessage}>Enviar</button>
+                    </div>
+                </>
+            )}
+        </div>
+    );
 }
+
 
 export default Chat;
 

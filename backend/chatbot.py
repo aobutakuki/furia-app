@@ -2,7 +2,7 @@ import requests
 import openai
 import re
 import os
-from typing import Optional
+from typing import Optional, Dict, Any
 
 OPENROUTER_API_KEY = "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"
 
@@ -44,63 +44,91 @@ Você é o assistente oficial da FURIA Esports no CS2. Informações atualizadas
   • arT detém o recorde de maior número de clutches em Majors (23)
   • KSCERATO já foi nomeado 3x para o Top 20 do mundo
 
-Responda sempre em português brasileiro, exceto quando explicitamente solicitado em outro idioma. Mantenha um tom empolgado mas profissional, como um comentarista esportivo.
 """
+conversation_history = {}
 
-def query_furia_assistant(prompt: str) -> str:
+def get_conversation_history(user_id: str) -> list:
+    """Get or initialize conversation history for a user"""
+    if user_id not in conversation_history:
+        conversation_history[user_id] = [
+            {
+                "role": "system",
+                "content": f"""Você é o assistente oficial da FURIA Esports no CS2. Siga estas regras:
+                
+1. Use este conhecimento como base:
+{FURIA_KNOWLEDGE}
+
+2. Seja natural e amigável
+3. Mantenha respostas curtas (1-3 frases)
+4. Use emojis ocasionalmente 🎯
+5. Se não souber, diga "Não tenho essa informação"
+6. Personalize respostas quando possível
+7. Foco apenas na FURIA
+"""
+            }
+        ]
+    return conversation_history[user_id]
+
+def query_furia_assistant(
+    prompt: str, 
+    user_id: str, 
+    user_data: Optional[Dict[str, Any]] = None
+) -> str:
     client = openai.OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=OPENROUTER_API_KEY
     )
     
     try:
+        messages = get_conversation_history(user_id)
+        
+        # Add personalization if user data exists
+        if user_data:
+            personalized_prompt = (
+                f"[Usuário: {user_data.get('name', 'Fã da FURIA')}] "
+                f"[Jogador Favorito: {user_data.get('favoritePlayer', 'Não especificado')}]\n"
+                f"Pergunta: {prompt}"
+            )
+            messages.append({"role": "user", "content": personalized_prompt})
+        else:
+            messages.append({"role": "user", "content": prompt})
+        
         response = client.chat.completions.create(
-            model="deepseek/deepseek-v3-base:free",
-            messages=[
-                {"role": "system", "content": FURIA_KNOWLEDGE},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=200,
-            temperature=0.7  # Balances creativity vs accuracy
+            model="anthropic/claude-3-haiku",
+            messages=messages,
+            max_tokens=250,
+            temperature=0.5,
+            presence_penalty=0.3,
+            frequency_penalty=0.3
         )
-        return response.choices[0].message.content
+        
+        answer = response.choices[0].message.content
+        
+        # Update conversation history (keep last 6 messages)
+        messages.append({"role": "assistant", "content": answer})
+        conversation_history[user_id] = messages[-6:]
+        
+        return answer
         
     except Exception as e:
         print(f"API Error: {e}")
-        return "Não consegui responder agora. Sabia que a FURIA foi fundada em 2017?"
-    
-if __name__ == "__main__":
-    test_questions = [
-        ("Quem é o capitão da FURIA CS2?", "arT"),
-        ("Qual é o papel do FalleN na equipe?", "rifler"),
-        ("Liste os jogadores atuais", ["arT", "KSCERATO", "yuurih", "molodoy", "YEKINDAR"]),
-        ("When was FURIA founded?", "2017")
-    ]
-    
-    for question, expected in test_questions:
-        print(f"\nQ: {question}")
-        response = query_furia_assistant(question)
-        print(f"A: {response}")
-        if any(kw.lower() in response.lower() for kw in ([expected] if isinstance(expected, str) else expected)):
-            print("✅ Passed")
-        else:
-            print(f"❌ Failed (expected: {expected})")
+        return "Eita, tive um probleminha aqui! 😅 Mas me conta, qual seu mapa favorito pra ver a FURIA jogar?"
 
-
-def analyze_interests(text: str) -> List[str]:
+def analyze_interests(text: str) -> list[str]:
     """Analyze user input for FURIA-related interests"""
     text = text.lower()
     interests = []
     
     interest_map = {
-        "players": ["art", "kscerato", "yuurih", "fallen", "molodoy"],
-        "matches": ["jogo", "partida", "match", "torneio"],
-        "history": ["história", "fundação", "2017"],
-        "merch": ["camisa", "produto", "loja"]
+        "players": ["art", "kscerato", "yuurih", "fallen", "molodoy", "yekindar", "chelo", "vini"],
+        "matches": ["jogo", "partida", "match", "torneio", "campeonato", "major", "iem", "esl"],
+        "history": ["história", "fundação", "2017", "origem", "começo"],
+        "stats": ["estatística", "número", "dado", "rank", "ranking"],
+        "merch": ["camisa", "produto", "loja", "comprar", "merchandising"]
     }
     
     for category, keywords in interest_map.items():
-        if any(keyword in text for keyword in keywords):
+        if any(re.search(rf'\b{re.escape(keyword)}\b', text) for keyword in keywords):
             interests.append(category)
     
     return interests
