@@ -1,17 +1,17 @@
 .team-info-container {
+    margin-top:10px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 .team-info-footer {
-    margin-top: 10px;
     background-color: #1a1a1a;
     color: white;
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    border-top: 2px solid #ffffff; /* FURIA orange */
+    border-top: 2px solid #f58020; /* FURIA orange */
 }
 
 .next-match, .current-roster {
@@ -20,7 +20,7 @@
 }
 
 .next-match h3, .current-roster h3 {
-    color: #ffffff;
+    color: #f58020;
     margin-bottom: 10px;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .match-date-time {
-    color: #ffffff;
+    color: #f58020;
 }
 
 .roster-players {
@@ -54,7 +54,7 @@
     background-color: #2a2a2a;
     padding: 8px;
     border-radius: 4px;
-    border-left: 3px solid #ffffff;
+    border-left: 3px solid #f58020;
 }
 
 .player-name {
