@@ -9,12 +9,13 @@
   height: 890px;
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
-  border: white 1px solid;
+  border: 2px solid #f58020;
 }
 
 .chat-container .chat-header {
-    color: white;
 
+    color: white;
+    
 }
 
 .chat-container .chat-input {
@@ -24,7 +25,7 @@
     width: 1340px;
     height: 100px;
     border-radius: 10px;
-    border: white 1px solid;
+    border-top: 2px solid #f58020;
     padding-left: 10px;
     font-size: 16px;
 }
