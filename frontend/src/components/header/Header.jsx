@@ -34,7 +34,7 @@ function Header() {
                     <FontAwesomeIcon 
                         icon={faGithub} 
                         className="icon github-icon"
-                        onClick={() => window.open('https://github.com/your-repo', '_blank')}
+                        onClick={() => window.open('https://github.com/aobutakuki/furia-app', '_blank')}
                         title="GitHub"
                     />
                 </div>
